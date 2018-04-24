@@ -196,7 +196,21 @@ example data:
 
 
 if __name__ == "__main__":
-    pass
+    from argparse import ArgumentParser
+    parser = ArgumentParser(description='ParseARFF')
+
+    parser = ArgumentParser()
+    parser.add_argument('-f', '--file', help='.arff file name', required=True)
+
+    args = parser.parse_args()
+
+    file_name = args.file
+
+    db = Database()
+    db.read_data(file_name)
+    print(db)
+
+
     # Sanity tests
     # d = Database()
     # d.read_data('./NominalData/weather.nominal.arff')
