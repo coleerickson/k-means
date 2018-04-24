@@ -94,7 +94,17 @@ class KMeans:
         return misclassification_counts
 
     def __str__(self):
-        return 'Reference vectors:\n' + '\n'.join([format_vec(vec) for vec in self.ref_vectors])
+        attribute_names = self.database.ordered_attributes[:-1]
+        attribute_name_format_string = '  '.join(['{:10s}'] * (len(attribute_names)))
+        column_headers = attribute_name_format_string.format(*attribute_names)
+        formatted_ref_vectors = '\n'.join([format_vec(ref_vector[:-1]) + \
+            ',     with class: ' + \
+            self.database.attributes[self.database.ordered_attributes[-1]][ref_vector[-1]]
+            for ref_vector in self.ref_vectors])
+        return 'Reference vectors:\n' + \
+            column_headers + '\n' + \
+            formatted_ref_vectors
+
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
@@ -113,7 +123,10 @@ if __name__ == '__main__':
     db.read_data(file_name)
 
     k_means = KMeans(k, db)
+    print()
     print(k_means)
+    print()
+
 
     print('Misclassified instances:')
     misclassifications = k_means.compute_misclassifications()
@@ -123,7 +136,10 @@ if __name__ == '__main__':
     for ref_vector_index, cluster_examples in clusters.items():
         num_misclassifications = misclassifications[ref_vector_index]
         cluster_size = len(cluster_examples)
-        cluster_name = k_means.ref_vectors[ref_vector_index][-1]
-        summary_lines.append('%10s: %5d  /%5d   =  %0.3f%%' % (cluster_name, num_misclassifications, cluster_size, 100 * (num_misclassifications / cluster_size)))
+        ref_vector = k_means.ref_vectors[ref_vector_index]
+        cluster_name = k_means.database.attributes[k_means.database.ordered_attributes[-1]][ref_vector[-1]]
+        # cluster_name = k_means.ref_vectors[ref_vector_index][-1]
+
+        summary_lines.append('%30s: %5d  /%5d   =  %0.3f%%' % (cluster_name, num_misclassifications, cluster_size, 100 * (num_misclassifications / cluster_size)))
     summary_lines.sort()
     print('\n'.join(summary_lines))
