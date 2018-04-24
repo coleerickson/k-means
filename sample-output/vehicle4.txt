@@ -1,0 +1,14 @@
+Finished after 12 iterations
+
+Reference vectors:
+sepallength  sepalwidth  petallength  petalwidth
+    5.2556,     3.6704,     1.5037,     0.2889,     with class: Iris-setosa
+    5.8836,     2.7410,     4.3885,     1.4344,     with class: Iris-versicolor
+    4.7130,     3.1217,     1.4174,     0.1913,     with class: Iris-setosa
+    6.8538,     3.0769,     5.7154,     2.0538,     with class: Iris-virginica
+
+Misclassified instances:
+                   Iris-setosa:     0  /   23   =  0.000%
+                   Iris-setosa:     0  /   27   =  0.000%
+                Iris-virginica:     3  /   39   =  7.692%
+               Iris-versicolor:    14  /   61   =  22.951%
