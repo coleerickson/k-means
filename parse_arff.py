@@ -122,9 +122,9 @@ class Database:
             # Use a regular expression to match the attribute name and values
             is_real_valued_attr = False
             match = re.match(
-                '\s*([^\s]*)\s*\{(.*)\}$', line[len('@attribute'):])
+                '\s*([^\s]*|\'[^\']*\')\s*\{(.*)\}$', line[len('@attribute'):])
             if not match:
-                match = re.match('\s*([^\s]*)\s*real$', line[len('@attribute'):].lower())
+                match = re.match('\s*([^\s]*|\'[^\']*\')\s*real$', line[len('@attribute'):].lower())
                 is_real_valued_attr = True
             assert bool(
                 match), 'Expected regex match on attribute line "%s"' % line
