@@ -1,14 +1,14 @@
-Finished after 12 iterations
+Finished after 11 iterations
 
 Reference vectors:
-sepallength  sepalwidth  petallength  petalwidth
-    5.2556,     3.6704,     1.5037,     0.2889,     with class: Iris-setosa
-    5.8836,     2.7410,     4.3885,     1.4344,     with class: Iris-versicolor
-    4.7130,     3.1217,     1.4174,     0.1913,     with class: Iris-setosa
-    6.8538,     3.0769,     5.7154,     2.0538,     with class: Iris-virginica
+'compactness'  'circularity'  'distance circularity'  'radius ratio'  'pr.axis aspect ratio'  'max.length aspect ratio'  'scatter ratio'  'elongatedness'  'pr.axis rectangularity'  'max.length rectangularity'  'scaled variance_major'  'scaled variance_minor'  'scaled radius of gyration'  'skewness about_major'  'skewness about_minor'  'kurtosis about_major'  'kurtosis about_minor'  'hollows ratio'
+   87.9118,    38.2471,    63.9706,   133.5647,    57.2706,     6.6765,   130.4000,    51.6471,    17.7941,   133.2353,   151.9000,   252.2882,   140.8353,    72.3529,     6.3000,    11.6059,   188.5647,   193.7235,     with class: van
+   89.2493,    42.8006,    75.8172,   158.5845,    62.9307,     8.8199,   153.7645,    43.4765,    19.3213,   143.8421,   176.4294,   351.8227,   165.7396,    73.5679,     6.0277,    11.0360,   188.4072,   194.9391,     with class: bus
+  104.4751,    53.5856,   102.9282,   200.2597,    61.5193,     9.8011,   220.2155,    30.3315,    24.6796,   168.0663,   232.5359,   718.9061,   216.6851,    73.2652,     7.3370,    15.9448,   187.3978,   195.7514,     with class: opel
+   98.3433,    47.0224,    93.8209,   199.4179,    64.2090,     8.6194,   188.8209,    34.8134,    21.9851,   150.8209,   208.7612,   538.4030,   185.1119,    68.5373,     6.1194,    13.5522,   192.8881,   199.7612,     with class: saab
 
 Misclassified instances:
-                   Iris-setosa:     0  /   23   =  0.000%
-                   Iris-setosa:     0  /   27   =  0.000%
-                Iris-virginica:     3  /   39   =  7.692%
-               Iris-versicolor:    14  /   61   =  22.951%
+                           bus:   208  /  361   =  57.618%
+                           van:    71  /  170   =  41.765%
+                          opel:   106  /  181   =  58.564%
+                          saab:    81  /  134   =  60.448%
